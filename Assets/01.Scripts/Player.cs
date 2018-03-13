@@ -143,6 +143,17 @@ public class Player : MonoBehaviour
         {
             ChangeState(eState.IDLE);
         }
+
+        if (Input.GetMouseButtonDown(0))
+            Shoot();
+    }
+
+    public string bulletName = "Bullet";
+    void Shoot()
+    {
+        GameObject bullet = ObjectPool.Instance.PopFromPool(bulletName);
+        bullet.transform.position = transform.position + transform.up;
+        bullet.SetActive(true);
     }
 
     public eInputDirection GetInputVerticalDirection()
