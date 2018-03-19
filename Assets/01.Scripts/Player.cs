@@ -145,16 +145,19 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0))
-            Shoot();
+        {
+            //Shoot();
+        }
+
     }
 
-    public string bulletName = "Bullet";
-    void Shoot()
-    {
-        GameObject bullet = ObjectPool.Instance.PopFromPool(bulletName);
-        bullet.transform.position = transform.position + transform.up;
-        bullet.SetActive(true);
-    }
+    //public string bulletName = "Bullet";
+    //void Shoot()
+    //{
+    //    GameObject bullet = ObjectPool.Instance.PopFromPool(bulletName);
+    //    bullet.transform.position = transform.position + transform.up;
+    //    bullet.SetActive(true);
+    //}
 
     public eInputDirection GetInputVerticalDirection()
     {
