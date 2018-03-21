@@ -170,9 +170,10 @@ public class Character : MonoBehaviour {
 
     void InitItem()
     {
-        // N way 탄 만들꺼 (예제로 3방향)
         //_gun = GunObject.AddComponent<GunItem>();
+        // N way 탄 만들꺼 (예제로 3방향)
         //_gun = GunObject.AddComponent<NWayGunItem>();
+        // Spiral altorithm이 적용된 탄 발사
         _gun = GunObject.AddComponent<SpiralGunItem>();
         _gun.SetBullet(BulletPrefab);
     }
