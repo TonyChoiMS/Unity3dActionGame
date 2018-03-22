@@ -7,12 +7,14 @@ public class GunItem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // struct GunItemAttr
-        /*
-        GunItemAttr attr = ScriptManager.Instance.FindGunItemAttr(_itemID);
+
+        GunAttribute attr = ScriptManager.instance.FindGunItemAttr(_itemID);
         _shotSpeed = attr.shotSpeed;
         _wayCount = attr.wayCount;
-        */
-	}
+        Debug.Log("ShotSpeed : " + _shotSpeed);
+        Debug.Log("wayCount : " + _wayCount);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,8 +34,8 @@ public class GunItem : MonoBehaviour {
 
     // csv에서 shotSpeed, wayCount를 스크립트 파싱해서 사용할 수 있도록 리펙토링 해볼것.
     protected string _itemID = "defaultGun";
-    protected float _shotSpeed = 0.05f;
-    protected int _wayCount = 3;
+    protected float _shotSpeed = 0.0f;
+    protected int _wayCount = 5;
 
     public void SetBullet(GameObject bulletPrefab)
     {
