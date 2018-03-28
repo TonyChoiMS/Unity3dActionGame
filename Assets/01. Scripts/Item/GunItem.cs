@@ -7,8 +7,8 @@ public class GunItem : MonoBehaviour
 
 	void Start() {
 		GunAttribute attr = ScriptManager.instance.FindGunItemAttr (_itemID);
-		_shotSpeed = attr.shotSpeed;
-//		_wayCount = attr.wayCount;
+        _shotSpeed = float.Parse(attr.getShotSpeed());
+        //_wayCount = int.Parse(attr.getWayCount());
 	}
 
     void Awake()

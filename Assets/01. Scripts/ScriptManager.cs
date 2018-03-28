@@ -7,8 +7,24 @@ using System.Text;
 using System.Threading;
 
 public class GunAttribute {
-	public float shotSpeed { get; set; }
-	public int wayCount { get; set; }
+	private string shotSpeed { get; set; }
+    private string wayCount { get; set; }
+
+    public void setShotSpeed(string shotSpeed) {
+        this.shotSpeed = shotSpeed;
+    }
+
+    public string getShotSpeed() {
+        return shotSpeed;
+    }
+
+    public void setWayCount(string wayCount) {
+        this.wayCount = wayCount;
+    }
+
+    public string getWayCount() {
+        return wayCount;
+    }
 }
 
 public class ScriptManager {
@@ -47,8 +63,9 @@ public class ScriptManager {
 					if (string.IsNullOrEmpty (strLineValue))
 						continue;
 
-					// add '#' to key value in csv file
-					if (strLineValue.Substring (0, 1).Equals ("#")) {
+                    // add '#' to key value in csv file
+                    Debug.Log("key : " + strLineValue.Substring(0, 1));
+					if (strLineValue.Substring (1, 1).Equals("#")) {
 						keys = strLineValue.Split (',');
 
 						keys [0] = keys [0].Replace ("#", "");
@@ -64,22 +81,27 @@ public class ScriptManager {
 						//Console.WriteLine();
 
 						continue;
-					}
-					// save Value code
-					values = strLineValue.Split(',');
-
-					attr.shotSpeed = 0.05f;
-					attr.wayCount = 3;
-					/*
-					 * Console.Write("Value : ");
-					 */
-					// Output
-					//for (int nIndex = 0; nIndex < values.Length; nIndex++) {
-					//Console.Write(values[nIndex]);
-					//if (nIndex != values.Length -1)
-					//Console.Write(", ");
-					//}
-					//Console.WriteLine();
+                    } else {
+                        // save Value code
+                        // index 0 = shotSpeed
+                        // index 1 = wayCount
+                        values = strLineValue.Split(',');
+                        Debug.Log("length : " + values.Length);
+                        Debug.Log("0 : " + values[0] + ", 1 : " + values[1]);
+                        attr.setShotSpeed(values[0]);
+                        attr.setWayCount(values[1]);
+                        /*
+                         * Console.Write("Value : ");
+                         */
+                        // Output
+                        //for (int nIndex = 0; nIndex < values.Length; nIndex++) {
+                        //Console.Write(values[nIndex]);
+                        //if (nIndex != values.Length -1)
+                        //Console.Write(", ");
+                        //}
+                        //Console.WriteLine();
+                    }
+					
 				}
 			}
 		}
